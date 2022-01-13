@@ -9,6 +9,31 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+var connection = require('./config/database');
+
+//database connection
+
+/* connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+
+  console.log('connected as id ' + connection.threadId);
+});
+
+connection.query('SELECT * FROM `product` ', function(err, results, fields) {
+  if (err) throw err;
+  console.log('Table product: ', results);
+});
+
+connection.query('SELECT * FROM `category` ', function(err, results, fields) {
+  if (err) throw err;
+  console.log('Table Category: ', results);
+});
+
+connection.end();
+ */
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
