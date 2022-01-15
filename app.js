@@ -6,42 +6,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const productRouter = require('./routes/product_routes');
 
 var app = express();
 
-const dbConfig = require('./config/database');
-
-const Sequelize = require('sequelize');
-
-const sequelize = new Sequelize(dbConfig.DATABASE, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: dbConfig.DIALECT,
-})
-
-//database connection
-
-/* connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
-
-  console.log('connected as id ' + connection.threadId);
-});
-
-connection.query('SELECT * FROM `product` ', function(err, results, fields) {
-  if (err) throw err;
-  console.log('Table product: ', results);
-});
-
-connection.query('SELECT * FROM `category` ', function(err, results, fields) {
-  if (err) throw err;
-  console.log('Table Category: ', results);
-});
-
-connection.end();
- */
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -51,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(productRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
