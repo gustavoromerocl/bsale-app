@@ -1,9 +1,9 @@
-# bsale-app
+# bsale-app 
 
 app creada con express generator \
 express --view=pug bsale-app
 
-# Arranque del proyecto en entorno local
+## Arranque del proyecto en entorno local
 
 ### `npm install`
 Instala las dependencias con nodejs
@@ -13,7 +13,9 @@ Instala las dependencias con nodejs
 Arranca la app development mode.\
 Abrir [http://localhost:3000](http://localhost:3000) para visualizar la app en el navegador.
 
-# Dependencias
+# Backend
+
+## Dependencias
 
 npm install mysql\
 npm install mysql2\
@@ -22,11 +24,20 @@ npm install sequelize\
 npm install sequelize-cli\
 npm install sequelize-auto\
 
-# Configurar Sequelize 
+## Configurar Sequelize 
 
 **Traer los modelos desde la BBDD bsale_test con sequelize** 
 sequelize-auto -o "./models" -d bsale_test -h mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com -u bsale_test -x bsale_test -e mysql
 
 **Iniciar configuracion de sequelize**
 sequelize init
+
+# Frontend
+
+## Dependencias
+
+### Webpack
+npm install --save-dev webpack webpack-cli webpack-dev-server  html-webpack-plugin \
+npm install --save-dev style-loader css-loader sass-loader node-sass
+
 
