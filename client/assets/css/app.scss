@@ -2,5 +2,11 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-  background-color: tomato;
+  box-sizing: border-box;
+}
+
+//Se corrige alineamiento de bootstrap en el form de busqueda
+.form-inline{
+  display: flex;
+  flex-direction: row;
 }
