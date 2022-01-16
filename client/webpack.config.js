@@ -1,5 +1,6 @@
 /** https://webpack.js.org/concepts/ */
 /* https://www.npmjs.com/package/html-webpack-plugin */
+/* https://getbootstrap.com/docs/4.3/getting-started/webpack/ */
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -21,9 +22,27 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: ['style-loader','css-loader', 'sass-loader']
-      }
+        test: /\.(scss)$/,
+        use: [{
+          loader: 'style-loader', 
+        }, {
+          loader: 'css-loader', 
+        },
+        {
+          loader: 'postcss-loader', 
+          options: {
+            postcssOptions: {
+              plugins: function () { 
+                return [
+                  require('autoprefixer')
+                ];
+              }
+            }
+          }
+        }, {
+          loader: 'sass-loader' // compiles Sass to CSS
+        }]
+      },
     ]
   },
   devServer: {

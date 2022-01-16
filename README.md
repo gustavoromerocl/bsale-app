@@ -37,7 +37,12 @@ sequelize init
 ## Dependencias
 
 ### Webpack
+
 npm install --save-dev webpack webpack-cli webpack-dev-server  html-webpack-plugin \
-npm install --save-dev style-loader css-loader sass-loader node-sass
 
+**sass**
+npm install --save-dev style-loader css-loader sass-loader node-sass \
 
+**bootstrap**
+npm install --save jquery popper.js. \
+npm install postcss-loader autoprefixer 
