@@ -6,4 +6,7 @@ let router = express.Router();
 router.route('/api/products')
     .get(ProductController.index);
 
+router.route('/api/products/:wildcard')
+    .get(ProductController.filter);
+
 module.exports = router;
