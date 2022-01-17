@@ -13,19 +13,17 @@ app.set('view engine', 'pug');
 
 //Middlewares
 app.use(logger('dev'));
-app.use(express.static(path.resolve(__dirname, './client/dist')));
+app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(__dirname + '/client/dist'));
 
 
+app.get('/', function(req,res){
+  res.render('index', {title: 'BSALE API REST'})
+});
 
 app.use(productRouter);
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, './client', 'index.html'))
-});
 
 
 // catch 404 and forward to error handler
