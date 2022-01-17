@@ -1,18 +1,23 @@
 # bsale-app 
 
-app creada con express generator \
-express --view=pug bsale-app
+## Introducción
 
-## Arranque del proyecto en entorno local
+Para construir lo solicitado, me propuse la siguiente ruta, servir un backend en express y gestionar la base de datos con sequelizeJS (ORM). En cuanto a el cliente, lo siguiente: webpack, bootstrap, sass/css, javascript vanilla. 
 
-### `npm install`
-Instala las dependencias con nodejs
+## Instrucciones
 
-### `npm start`
+Por razones de tiempo, el cliente se debe consumir de forma local ya que hay problemas de compatibilidad que corregir entre heroku, express y webpack. Sin embargo la arquitectura cliente-servidor estan desarrolladas para que trabajen de forma independiente según lo solicitado. El backend esta operando correctamente en produccion sirviendo la base de datos entregada en la siguiente uri:\ 
+[https://bsale-challenge.herokuapp.com/api/products] \
+Dicho esto, continuamos para servir el cliente de manera local, para ello vamos a seguir las siguientes instrucciones:
 
-Arranca la app development mode.\
-Abrir [http://localhost:3000](http://localhost:3000) para visualizar la app en el navegador.
+### Arranque del cliente en entorno local
 
+1- Ingresar o posicionar tu terminal en la caperta **/ Client** \
+2- Ejecutaremos **npm install** para instalar las dependencias de node_modules  \
+3- Ejecutamos **npm run dev** para ejecutar el webpack server en [http://localhost:3000] \
+
+\ 
+\ 
 # Backend
 
 ## Dependencias
@@ -31,6 +36,8 @@ sequelize-auto -o "./models" -d bsale_test -h mdb-test.c6vunyturrl6.us-west-1.rd
 
 **Iniciar configuracion de sequelize**
 sequelize init
+\
+\
 
 # Frontend
 

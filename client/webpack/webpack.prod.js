@@ -10,7 +10,7 @@ module.exports = merge(common, {
     children: true,
   },
   output:{
-    publicPath: '.'
+    publicPath: '/'
   },
   plugins: [
     new MiniCssExtractPlugin({
