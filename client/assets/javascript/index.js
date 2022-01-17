@@ -4,7 +4,7 @@ const form = document.querySelector('.form-inline');
 let data = [];
 
 const fecthData = async function(){
-  let response =   await fetch('/api/products').then((res) => res.json());
+  let response =   await fetch('https://bsale-challenge.herokuapp.com/api/products').then((res) => res.json());
   data = response;
 
   try{  
@@ -29,7 +29,7 @@ form.addEventListener('submit', async function(ev){
   ev.preventDefault();
   let inputValue = document.getElementById('search').value.toLowerCase();
 
-  let data =   await fetch(`/api/products/${inputValue}`).then((res) => res.json());
+  let data = await fetch(`https://bsale-challenge.herokuapp.com/api/products/${inputValue}`).then((res) => res.json());
   try{
     if(inputValue){
       container.innerHTML = '';
