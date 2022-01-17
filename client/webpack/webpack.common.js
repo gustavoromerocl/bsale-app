@@ -11,7 +11,6 @@ const htmlWebpack = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  mode: 'development',
   entry: './assets/javascript/entry.js',
   output: {
     publicPath: '/',
@@ -34,18 +33,14 @@ module.exports = {
             postcssOptions: {
               plugins: function () { 
                 return [
+                  require('precss'),
                   require('autoprefixer')
                 ];
               }
             }
           }
-        }, {
-          loader: 'sass-loader' // compiles Sass to CSS
         }]
-      },
+      }
     ]
-  },
-  devServer: {
-    port: 3000
   }
 }

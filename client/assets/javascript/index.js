@@ -4,7 +4,7 @@ const form = document.querySelector('.form-inline');
 let data = [];
 
 const fecthData = async function(){
-  let response =   await fetch('http://localhost:8080/api/products').then((res) => res.json());
+  let response =   await fetch('/api/products').then((res) => res.json());
   data = response;
 
   try{  
@@ -29,7 +29,7 @@ form.addEventListener('submit', async function(ev){
   ev.preventDefault();
   let inputValue = document.getElementById('search').value.toLowerCase();
 
-  let data =   await fetch(`http://localhost:8080/api/products/${inputValue}`).then((res) => res.json());
+  let data =   await fetch(`/api/products/${inputValue}`).then((res) => res.json());
   try{
     if(inputValue){
       container.innerHTML = '';
@@ -43,26 +43,6 @@ form.addEventListener('submit', async function(ev){
   }catch(err){
     alert(err);
   }
-
-/*   try {
-    fetch(`http://localhost:8080/api/products/${inputValue}`)
-      .then((res) => res.json())
-        .then((data) => {
-          //Solo si se ingresa un valor en el input de busqueda, vacia el div de productos y carga el resultado
-          if(inputValue){
-            container.innerHTML = '';
-            data.map(({url_image, name, price}) => {
-              if(url_image) createCard(url_image, name, price)
-            });
-          }
-          else{
-            container.innerHTML = '<p>No se encontraron coincidencias</p>';
-          }
-        });
-  }catch (err){
-    alert(err);
-  } */
-  
 
 });
 
