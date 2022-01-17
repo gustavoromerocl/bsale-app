@@ -2,15 +2,13 @@
 
 Esta app se encuentra servida en el siguiente enlace de heroku\
 
-[https://bsale-challenge.herokuapp.com/api/products] 
+[https://bsale-challenge.herokuapp.com/] 
 
-## Instrucciones
+### Arranque en entorno local
 
 1- Ingresar o posicionar tu terminal en la caperta raíz
 2- Ejecutaremos **npm install** para instalar las dependencias de node_modules  \
 3- Ejecutamos **npm run dev** para ejecutar el webpack server en [http://localhost:8080] \
-
-# Backend
 
 ## Dependencias
 
