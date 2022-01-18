@@ -5,11 +5,29 @@ block content
   p Bienvenide a #{title}
 
   h3 Instrucciones
+
+  h4 Todos los productos
   ol
     li
       | Para consumir los productos de esta API debe hacer una peticion GET a 
-      a https://bsale-challenge.herokuapp.com/api/products/a&gt;
+      a(href='https://bsale-challenge.herokuapp.com/api/products') https://bsale-challenge.herokuapp.com/api/products
     li Obtenga el objeto Array de la respuesta JSON
     li Desplegar la informacion en el framework cliente de tu preferencia
 
+  h4 Todos las categorias
+  ol
+    li
+      | Para consumir las categorias de esta API debe hacer una peticion GET 
+      a(href='https://bsale-challenge.herokuapp.com/api/categories') https://bsale-challenge.herokuapp.com/api/categories
+      
+    li Obtenga el objeto Array de la respuesta JSON
+    li Desplegar la informacion en el framework cliente de tu preferencia
+
+  h4 Todos los productos de una categoria
+  ol
+    li
+      | Para consumir todos los productos de una categoria debe hacer una peticion GET pasando en los parametros el id de la categoria a 
+      a(href='https://bsale-challenge.herokuapp.com/api/categories/:id') https://bsale-challenge.herokuapp.com/api/categories/:id
+    li Obtenga todos los productos de la categoria en formato JSON
+    li Desplegar la informacion en el framework cliente de tu preferencia
     
