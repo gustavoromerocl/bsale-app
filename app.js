@@ -3,7 +3,14 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+let cors = require('cors');
 
+/* Swagger */
+const swaggerUi = require('swagger-ui-express');
+
+const swaggerSpec = require('./config/openapi.json')
+
+/* Routes */
 const productRouter = require('./routes/product_routes');
 const categoryRouter = require('./routes/category_routes');
 
@@ -18,11 +25,10 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors());
 
-
-app.get('/', function(req,res){
-  res.render('index', {title: 'BSALE API REST'})
-});
+/* Se configura ruta raiz de la api para servir la interfaz generada con swagger */
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(productRouter);
 app.use(categoryRouter);

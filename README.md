@@ -26,3 +26,11 @@ sequelize-auto -o "./models" -d bsale_test -h mdb-test.c6vunyturrl6.us-west-1.rd
 
 **Iniciar configuracion de sequelize**
 sequelize init
+
+## Swagger
+
+https://www.npmjs.com/package/swagger-ui-express
+https://editor.swagger.io/
+
+npm install swagger-ui-express
+

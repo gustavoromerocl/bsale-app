@@ -10,6 +10,7 @@ module.exports = {
     res.header("Access-Control-Allow-Origin","*");
     Product.findAll().then(products => res.json(products));
   },
+  //Filtro de busqueda de productos por el parametro ingresado en la barra de busqueda
   filter: function(req, res){
     res.header("Access-Control-Allow-Origin","*");
     Product.findAll({

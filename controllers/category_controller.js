@@ -7,7 +7,7 @@ module.exports = {
     res.header("Access-Control-Allow-Origin","*");
     Category.findAll().then(categories => res.json(categories));
   },
-  //Se implementa filtro de productos por la categoria recibida en los params
+  //Filtro de productos por la categoria recibida en los params
   filter: function(req, res){
     res.header("Access-Control-Allow-Origin","*");
     Product.findAll({

@@ -1,0 +1,215 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Bsale API",
+    "description": "Esta API sirve informacion recibida desde una base de datos de prueba de la empresa bsale.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://bsale-challenge.herokuapp.com/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Productos",
+      "description": "Este endpoint maneja la informacion de todos los productos disponibles de bsale"
+    },
+    {
+      "name": "Categorias",
+      "description": "Este endpoint maneja la informacion de todas las categorias de productos disponible"
+    }
+  ],
+  "paths": {
+    "/api/products": {
+      "get": {
+        "tags": [
+          "Productos"
+        ],
+        "summary": "Retorna todos los productos en la BD.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Success"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/api/products/{searchParams}": {
+      "get": {
+        "tags": [
+          "Productos"
+        ],
+        "summary": "Obtiene todos los productos que coincidan con la busqueda ingresada",
+        "parameters": [
+          {
+            "name": "searchParams",
+            "in": "path",
+            "description": "Parametro de busqueda",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Success"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/api/categories": {
+      "get": {
+        "tags": [
+          "Categorias"
+        ],
+        "summary": "Obtiene la informacion de todas las categorias de productos en la BD",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Success"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/api/categories/{idCategoria}": {
+      "get": {
+        "tags": [
+          "Categorias"
+        ],
+        "summary": "Obtiene la informacion de los productos que tienen asignada la categoria solicitada",
+        "parameters": [
+          {
+            "name": "idCategoria",
+            "in": "path",
+            "description": "Identificador de la categoria",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Success"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "Success": {
+        "description": "(OK) La información fue recibida correctamente",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "(Unauthorized) No hay autorización para acceder a la api"
+      },
+      "NotFound": {
+        "description": "(NotFound) No se encontró la información"
+      },
+      "BadRequest": {
+        "description": "(Badrequest) Los datos enviados son incorrectos"
+      },
+      "ServerError": {
+        "description": "Error en el servidor"
+      }
+    },
+    "parameters": null,
+    "schemas": {
+      "product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "id del producto"
+          },
+          "name": {
+            "type": "string",
+            "description": "nombre del producto"
+          },
+          "url_image": {
+            "type": "string",
+            "description": "url de la imagen"
+          },
+          "price": {
+            "type": "number",
+            "description": "precio del producto"
+          },
+          "discount": {
+            "type": "integer",
+            "description": "descuento opcional asociado"
+          },
+          "category": {
+            "type": "integer",
+            "description": "id de la categoria a la que pertenece"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "example": {
+          "id": 1,
+          "name": "ENERGETICA MR BIG",
+          "url_Image": "https://dojiw2m9tvv09.cloudfront.net/11132/product/misterbig3308256.jpg",
+          "price": 1490,
+          "discount": 0,
+          "category": 1
+        }
+      },
+      "category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "id de la categoria"
+          },
+          "name": {
+            "type": "string",
+            "description": "nombre de la categoria"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "example": {
+          "id": 1,
+          "name": "bebidas"
+        }
+      }
+    }
+  }
+}
