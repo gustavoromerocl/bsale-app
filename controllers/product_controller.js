@@ -26,11 +26,19 @@ module.exports = {
     
     Product.findAndCountAll({
       limit: size,
-      offset: page * size
+      offset: page * size,
+      //Validamos que  las imagenes no sean nulas y que no contengan strings vacíos
+      where: {
+        [Op.and]: [
+          {url_image: { [Op.ne]: null } },
+          {url_image: { [Op.ne]: "" } }
+        ]
+        
+      }
     })
     .then(products => res.json({
       content: products.rows,
-      totalPages: Math.ceil(products.count / size)
+      totalPages: Math.floor(products.count / size)
     }));
     
   },
