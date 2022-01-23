@@ -7,6 +7,8 @@ let cors = require('cors');
 
 /* Swagger */
 const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./config/swagger.yaml');
 
 const swaggerSpec = require('./config/openapi.json')
 
@@ -28,7 +30,7 @@ app.use(cookieParser());
 app.use(cors());
 
 /* Se configura ruta raiz de la api para servir la interfaz generada con swagger */
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(productRouter);
 app.use(categoryRouter);
