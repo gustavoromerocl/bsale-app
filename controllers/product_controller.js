@@ -38,7 +38,7 @@ module.exports = {
     })
     .then(products => res.json({
       content: products.rows,
-      totalPages: Math.floor(products.count / size)
+      totalPages: Math.ceil(products.count / size)
     }));
     
   },

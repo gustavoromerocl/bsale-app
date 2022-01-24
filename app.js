@@ -10,8 +10,6 @@ const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./config/swagger.yaml');
 
-const swaggerSpec = require('./config/openapi.json')
-
 /* Routes */
 const productRouter = require('./routes/product_routes');
 const categoryRouter = require('./routes/category_routes');
